@@ -1,14 +1,14 @@
-function text_truncate(str, length, ending) {
-    if (length == null) {
-      length = 5;
-    }
-    if (ending == null) {
-      ending = '...';
-    }
+//Truncated strings will end with a translatable ellipsis sequence ("…") (by default) or specified characters.
+
+const textTruncate = (str, length = 5) => {
+
+    const ending = '...';
+
     if (str.length > length) {
-      return str.substring(0, length - ending.length) + ending;
-    } else {
-      return str;
+        return str.substring(0, length - ending.length) + ending;
     }
-  };
-export default text_truncate ;
+
+    return str;
+
+};
+export default textTruncate;

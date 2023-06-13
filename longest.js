@@ -1,5 +1,5 @@
 
-	function longest(str){
+	const longest = (str) => {
 
 	str = str.split(" ")
 	
