@@ -7,4 +7,5 @@ const isPalindrome = (str) => {
     // Check if the reversed string is equal to the original string
     return str === str.split('').reverse().join('');
   }
+  
   export default isPalindrome;
