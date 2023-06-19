@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+    <script type="module">
+        let button = document.getElementById("form");
+        button.addEventListener("submit", (e) => {
+            e.preventDefault();
+            console.log("hi")
+            let fName = document.getElementById("fname")?.value;
+            let email = document.getElementById("email")?.value;
+            let MobileNumber = document.getElementById("MobileNumber")?.value;
+            const gender = document.querySelector('input[name="Gender"]:checked')?.value;
+            let password = document.getElementById("psw")?.value;
+            let location = document.getElementById("Locations")?.selectedOptions[0]?.value;
+            let checkbox = document.getElementById("TNC");
+
+
+
+            // Validate first name and last name
+            const nameRegex = /^\w+\s+\w+$/
+            if(!nameRegex.test(fName)) {
+                alert("Please enter your first and last name (2 words only)!");
+            }
+            // Validate email format
+            var emailRegex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address!");
+            }
+            // Validate mobile number
+            var mobileRegex = /^[6-9]\d{9}$/;
+            if (!mobileRegex.test(MobileNumber)) {
+                alert("Please eneter a valid mobile number!");
+            }
+            // Validate gender selection
+            if (gender === "") {
+                alert("Please select your gender!");
+            }
+
+            // Validate password strength
+            var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+            if (!passwordRegex.test(password)) {
+                alert("Please enter a strong password!");
+            }
+
+            // Validate location selection
+            if (location === "") {
+                alert("Please select your location!");
+            }
+
+            // Validate acceptance of terms and conditions
+            if (!checkbox?.checked) {
+                alert("Please accept the terms and conditions!");
+            }
+
+            // Mask password with asterisks
+            var maskedPassword = "***".repeat(password.length);
+
+            // Display entered details in an alert box
+            alert("fname: " + fName +
+                "\nemail: " + email +
+                "\nMobileNumber:" + MobileNumber +
+                "\nGender:" + gender +
+                "\npassword:" + password +
+                "\nlocation:" + location 
+            )
+
+        })
+    </script>
+</head>
+
+<body>
+    <form id="form">
+        <labeL>Name:</labeL>
+        <input type="text" id="fname"><br><br>
+        <label for="email">Enter your email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="MobileNumber">Enter your mobile number:</label>
+        <input type="text" id="MobileNumber"> <br><br>
+        <label for="Gender">What is your gender</label><br>
+        <input type="radio" name="Gender" id="male"> Male
+        <input type="radio" name="Gender" id="female"> Female
+        <input type="radio" name="Gender" id="unknown"> Unknown <br><br>
+        <label for="psw">Password</label>
+        <input type="password" id="psw" name="psw">
+
+        <label for="Locations">Choose your location:</label>
+        <select name="Locations" id="Locations">
+            <option value="mumbai">Mumbai</option>
+            <option value="bangalore">Bangalore</option>
+        </select><br><br>
+
+        <input type="checkbox" id="TNC">
+        <label for="TNC"> TNC</label><br><br>
+
+        <button id="button" type="submit">Submit</button>
+        </div>
+</body>
+</form>
+
+</html>
