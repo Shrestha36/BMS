@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Shrestha36/BMS/issues"
   },
-  "homepage": "https://github.com/Shrestha36/BMS#readme"
+  "homepage": "https://github.com/Shrestha36/BMS#readme",
+  "dependencies": {
+    "react-router-dom": "^6.14.0"
+  }
 }
